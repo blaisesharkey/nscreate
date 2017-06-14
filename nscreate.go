@@ -110,10 +110,11 @@ func listManifests() []string {
 
 	ms := []string{}
 	for _, file := range files {
-		if file.Mode().IsRegular() {
-			if filepath.Ext(file.Name()) == ".yaml" {
-				ms = append(ms, file.Name())
-			}
+		if !file.Mode().IsRegular() {
+			continue
+		}
+		if filepath.Ext(file.Name()) == ".yaml" {
+			ms = append(ms, file.Name())
 		}
 	}
 
