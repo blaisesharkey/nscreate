@@ -2,7 +2,7 @@
 # copy of the default 'user' cluster role, which can viewed with the following command.
 # $ kubectl get -o yaml clusterrole user
 
-piVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRole
 rules:
 - apiGroups:
