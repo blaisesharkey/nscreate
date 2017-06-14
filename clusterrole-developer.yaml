@@ -1,0 +1,113 @@
+# This manifest is a starting point for a cluster role that can be bound to from namespaces. It is a
+# copy of the default 'user' cluster role, which can viewed with the following command.
+# $ kubectl get -o yaml clusterrole user
+
+piVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+rules:
+- apiGroups:
+  - ""
+  attributeRestrictions: null
+  resources:
+  - bindings
+  - configmaps
+  - events
+  - pods
+  - replicationcontrollers
+  - secrets
+  - services
+  - serviceaccounts
+  - pods/attach
+  - pods/binding
+  - pods/exec
+  - pods/log
+  - pods/portforward
+  - pods/proxy
+  - pods/status
+  - replicationcontrollers/scale
+  - replicationcontrollers/status
+  - services/proxy
+  - services/status
+  verbs:
+  - '*'
+- apiGroups:
+  - ""
+  attributeRestrictions: null
+  resources:
+  - componentstatuses
+  - endpoints
+  - limitranges
+  - nodes
+  - nodes/proxy
+  - nodes/status
+  - namespaces
+  - namespaces/status
+  - namespaces/finalize
+  - persistentvolumeclaims
+  - persistentvolumeclaims/status
+  - persistentvolumes
+  - resourcequotas
+  - resourcequotas/status
+  verbs:
+  - get
+  - list
+  - watch
+  - proxy
+  - redirect
+- apiGroups:
+  - apps
+  - batch
+  - autoscaling
+  - policy
+  attributeRestrictions: null
+  resources:
+  - '*'
+  verbs:
+  - '*'
+- apiGroups:
+  - extensions
+  attributeRestrictions: null
+  resources:
+  - daemonsets
+  - deployments
+  - horizontalpodautoscalers
+  - ingresses
+  - jobs
+  - replicasets
+  - replicationcontrollers
+  - daemonsets/status
+  - deployments/rollback
+  - deployments/scale
+  - deployments/status
+  - horizontalpodautoscalers/status
+  - ingresses/status
+  - jobs/status
+  - replicasets/scale
+  - replicasets/status
+  - replicationcontrollers/scale
+  verbs:
+  - '*'
+- apiGroups:
+  - extensions
+  attributeRestrictions: null
+  resources:
+  - networkpolicies
+  - thirdpartyresources
+  verbs:
+  - get
+  - list
+  - watch
+  - proxy
+  - redirect
+- apiGroups:
+  - rbac.authorization.k8s.io
+  attributeRestrictions: null
+  resources:
+  - '*'
+  verbs:
+  - get
+  - list
+  - watch
+  - proxy
+  - redirect
+
